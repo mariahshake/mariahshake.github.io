@@ -1,0 +1,357 @@
+/* Redenifição no comportamento padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilos do Menu de Navegação */
+header {
+    background-color: rgba(245, 55, 216, 0.959);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10; /* Garante que o header esteja acima do conteúdo */
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+li {
+    margin: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    background-color: #ff47b6;
+    font-weight: bolder;
+}
+
+/* Menu em Dropdown - Responsivo */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background-color: rgba(245, 55, 216, 0.959);
+    padding: 8px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+/* Plano de Fundo com o título de Boas-vindas no elemento <main> para a Página Inicial (index.html) */
+.inicial {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: url('plano_de_fundo.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: calc(100vh - 60px - 60px); /* Altura adaptada para caber entre o header e o footer */
+    width: 100%;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+
+
+.titulo {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px 40px;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 0;
+    max-width: 90%;
+}
+
+/* Quem somos no elemento <main> para a Página Sobre (sobre.html) */
+.sobre  {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.quem_somos {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 80px; /* Espaço adicional na parte inferior */
+}
+
+.quem_somos h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.quem_somos p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Ferramentas Tecnologia no elemento <main> para a Página Tecnologia (tecnologia.html) */
+.ferramentas_tecnologia {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 20px;
+    margin: 0 auto; /* Centraliza horizontalmente */
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px - 60px); /* Garante que ocupe a altura visível */
+    padding: 20px;
+}
+
+.ferramentas_tecnologia h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.ferramentas_tecnologia p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.tecnologia-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tecnologia-item {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+footer hr {
+    border: 0;
+    height: 1px;
+    background: #444;
+    margin-bottom: 10px;
+}
+
+/* Página Inicial com Design Responsivo */
+@media (max-width: 768px) {
+    ul {
+        flex-direction: column;
+        background-color: rgba(245, 55, 216, 0.959);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 200px;
+        text-align: left;
+        padding: 10px;
+        border-radius: 0 8px 8px 0;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 15;
+    }
+
+    ul.show {
+        transform: translateX(0);
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+        left: 20px;
+        z-index: 20;
+    }
+
+    li {
+        margin: 10px 0;
+    }
+
+    a {
+        color: white;
+        font-weight: bold;
+    }
+
+    .titulo {
+        font-size: 2rem;
+        padding: 15px;
+    }
+}
+
+/* Página Sobre com Design Responsivo */
+@media (max-width: 1200px) {
+    .quem_somos h2 {
+        font-size: 2rem;
+    }
+
+    .quem_somos p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .quem_somos h2 {
+        font-size: 1.8rem;
+    }
+
+    .quem_somos p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .quem_somos h2 {
+        font-size: 1.5rem;
+    }
+
+    .quem_somos p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Página Tecnologia com Design Responsivo */
+@media (max-width: 1200px) {
+    .ferramentas_tecnologia h2 {
+        font-size: 2rem;
+    }
+
+    .ferramentas_tecnologia p {
+        font-size: 1.1rem;
+    }
+
+    .tecnologia-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .ferramentas_tecnologia h2 {
+        font-size: 1.8rem;
+    }
+
+    .ferramentas_tecnologia p {
+        font-size: 1rem;
+    }
+    
+    .tecnologia-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .ferramentas_tecnologia h2 {
+        font-size: 1.5rem;
+    }
+
+    .ferramentas_tecnologia p {
+        font-size: 0.9rem;
+    }
+}
+
+
+#privacy-policy {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(to right, #ff00d9, #ff47b6);
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+#privacy-policy ul {
+    text-align: left;
+    list-style: disc;
+    padding-left: 20px;
+}
+
+#privacy-policy p {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+#privacy-p {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+#privacy-policy p{
+    border: 0;
+    height: 1px;
+    background: #444;
+    margin-bottom: 10px;
+}
